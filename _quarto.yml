@@ -10,7 +10,7 @@ website:
         text: Home
       - href: projects/index.qmd
         text: Academic Projects
-      - href: blog.qmd
+      - href: blog/index.qmd
         text: Baseball Blog
 
 format:

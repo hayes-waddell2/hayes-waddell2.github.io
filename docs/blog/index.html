@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Nicotine significantly enhanced rats’ ability to discriminate between reward-paired and neutral cues in both sign-tracking and goal-tracking responses">
 
-<title>Nicotine Enhances Pavlovian Conditioned Approach Behavior in Rats – Hayes Waddell</title>
+<title>Baseball Blog – Hayes Waddell</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,23 +26,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,9 +72,67 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<link rel="stylesheet" href="../../styles.css">
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -83,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Hayes Waddell</span>
     </a>
   </div>
@@ -94,15 +153,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects/index.html"> 
+    <a class="nav-link" href="../projects/index.html"> 
 <span class="menu-text">Academic Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog/index.html"> 
+    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
 <span class="menu-text">Baseball Blog</span></a>
   </li>  
 </ul>
@@ -124,14 +183,9 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Nicotine Enhances Pavlovian Conditioned Approach Behavior in Rats</h1>
+<h1 class="title">Baseball Blog</h1>
 </div>
 
-<div>
-  <div class="description">
-    Nicotine significantly enhanced rats’ ability to discriminate between reward-paired and neutral cues in both sign-tracking and goal-tracking responses
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -146,32 +200,36 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Alcohol and nicotine are among the most commonly co-used substances, with 80-90% of individuals with alcohol use disorders also reporting nicotine use — and each drug promoting greater use of the other. One possible explanation for this relationship is that nicotine enhances the motivational pull of cues associated with other rewards, a phenomenon studied through Pavlovian conditioning. In this paradigm, animals learn to associate a neutral stimulus with a reward, and their responses fall into two categories: sign-tracking (approaching the cue itself) and goal-tracking (approaching the reward location). Sign-trackers are of particular interest because they show greater addiction-related traits, including impulsive behavior and drug-seeking. This study asked how nicotine exposure affects these conditioned responses in male and female rats when the reward is either alcohol or sucrose.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig-1.png" class="img-fluid figure-img"></p>
-<figcaption>A mixed, repeated measures ANOVA with the between-subjects factors of sex, to-be-assigned drug group, and to-be-assigned US group, and the within-subject factor of session revealed a main effect of session, F(11,396) = 16.06, p &lt; 0.001, a main effect of sex, F(1,36) = 16.43, p &lt;0.001, and an interaction of session x sex, F(11,396) = 9.25, p &lt; 0.001.</figcaption>
-</figure>
-</div>
-<p>This was a collaborative project across a group of eight researchers. I spent one semester in the lab working directly with live rats — each researcher was responsible for a subset of the animals, and I was directly responsible for six of the 48 Long-Evans rats across two experimental phases. This included hands-on animal handling, running conditioning sessions, administering subcutaneous nicotine or saline injections, and recording all behavioral data by hand across roughly 30 sessions per animal. The following semester I took on the data side — ingesting approximately 48 rats × 30 sessions × 10 features worth of hand-recorded observations into a structured format suitable for statistical analysis, and building all of the results visualizations from the cleaned dataset.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig-3.png" class="img-fluid figure-img"></p>
-<figcaption>A mixed, repeated measures ANOVA with the between-subjects factors of sex, drug group, and US group, and the within-subject factors of session and CS type revealed a main effect of session, F(23,828) = 14.07, p &lt; 0.001, a main effect of CS type, F(1,36) = 24.72, p &lt; 0.001, a main effect of drug group, F(1,36) = 16.79, p &lt; 0.001, a main effect of US group, F(1,36) = 5.55, p = 0.024, an interaction of session x CS type, F(23,828) = 10.90, p = &lt; 0.001, an interaction of session x drug group, F(23,828) = 4.40, p &lt; 0.001, and a three-way interaction of session x CS type x drug group, F(23,828) = 2.26, p = 0.048.</figcaption>
-</figure>
-</div>
-<p>The study ran in two phases. In Phase 1, rats were given intermittent home cage access to 15% ethanol versus water over 12 sessions, establishing baseline drinking behavior. In Phase 2, rats received a subcutaneous injection of nicotine or saline 10 minutes before each of 24 Pavlovian conditioning sessions, during which a lever (CS+) was paired with either 15% ethanol or 21.3% sucrose reward. Sign-tracking and goal-tracking responses to both the CS+ and CS- were recorded across sessions. Mixed repeated measures ANOVAs were used to evaluate the effects of session, sex, drug group, and reward type on conditioned responses.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig-2.png" class="img-fluid figure-img"></p>
-<figcaption>A mixed, repeated measures ANOVA with the between-subjects factors of sex, drug group, and US group, and the within-subject factors of session and CS type revealed a main effect of session, F(23,828) = 4.82, p &lt; 0.001, a main effect of CS type, F(1,36) = 5.04, p = 0.031, a main effect of drug group, F(1,36) = 9.65, p = 0.004, a main effect of US group, F(1,36) = 8.29, p = 0.007, an interaction of session x US group, F(23,828) = 3.02, p = 0.005, and an interaction of CS type x drug group, F(1,36) = 6.93, p = 0.012.</figcaption>
-</figure>
-</div>
-<p>Nicotine significantly enhanced learning of the discrimination between the reward-paired cue (CS+) and the control cue (CS-) in both sign-tracking and goal-tracking responses. Rats conditioned with a sucrose reward showed stronger conditioned approach behavior than those conditioned with ethanol, suggesting sucrose is a more motivationally potent reward in this population. Female rats consumed more ethanol and showed greater ethanol preference than males during home cage exposure, though this sex difference did not carry over into differences in Pavlovian conditioned responding. The results point to nicotinic acetylcholine receptors as a promising target for understanding and potentially treating substance use disorders, given their apparent role in reward-related learning and cue reactivity.</p>
 
 
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1781150400000" data-listing-file-modified-sort="1781214626739" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="3">
+<a href="../blog/post-one/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../blog/post-one/thumbnail.png" class="thumbnail-image card-img" style="height: 200px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Your Post Title
+</h5>
+<div class="card-text listing-description delink">
+<p>One sentence about the post.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jun 11, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

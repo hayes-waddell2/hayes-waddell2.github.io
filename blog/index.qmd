@@ -1,0 +1,10 @@
+---
+title: "Baseball Blog"
+listing:
+  contents: "*/index.qmd"
+  type: grid
+  image-height: 200px
+  fields: [image, title, description, date]
+  sort: "date desc"
+---
+
