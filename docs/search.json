@@ -39,7 +39,7 @@
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "Deep Learning EEG Classification Pipeline\n\n\nEnd-to-end CNN+LSTM pipeline for abnormal EEG classification.\n\n\n\n\n\nNo matching items"
+    "text": "Deep Learning EEG Classification Pipeline\n\n\nEnd-to-end CNN+LSTM pipeline for abnormal EEG classification.\n\n\n\n\n\n\n\n\n\n\n\n\nIs MLB Clutch Performance a Reproducible Skill?\n\n\nAnalyzing batter swing behavior in high leverage situations.\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/project-one/index.html",
@@ -47,5 +47,12 @@
     "title": "Deep Learning EEG Classification Pipeline",
     "section": "",
     "text": "View on GitHub\nRead the Paper\nManual review of EEG recordings is time-consuming, subjective, and requires significant clinical expertise - creating bottlenecks in neurological workflows. Deep learning offers a path towards faster, more consistent, and accessible automated classification. Existing work is limited by poor cross-subject generalization, lack of reproducibility, and models that function as black boxes with little to no clinically meaningful interpret-ability. This project builds an end-to-end pipeline that addresses all three gaps simultaneously.\n\n\n\nOverall architecture of the Spatial and Temporal Abnormal EEG Classification Pipeline, consisting of four sequential layers: Ingestion, Preprocessing, Modeling, and Analysis.\n\n\nThe pipeline is applied to the Temple University Hospital Abnormal EEG Corpus (TUAB v3.0.1), a large-scale clinical dataset of 2,993 recordings totaling over 1,141 hours of EEG data. Recording-level labels (normal or abnormal) were derived from neurologist-authored medical reports via NLP and verified manually. Raw recordings are preprocessed into 30-second segments across 19 standardizes electrode channels, yielding 743,578 training segments at 250 Hz.\n\n\n\nDetailed diagram of the Modeling Layer, illustrating the CNN feature extractor, CNN+LSTM architecture, shared attention module, and LOSO-CV validation framework.\n\n\nThe baseline model is a hybrid CNN+LSTM architecture. A three-block CNN extracts spatial-spectral features across channels, which are then passed to a two-layer bidirectional LSTM that models sequential temporal dependencies. The pipeline is designed to be fully modular and ran with a single script calling every module from data loading to predictions. Preprocessing, training, and evaluation are all driven by version-controlled configuration and run reproducibly on a single GPU. Strict subject-disjoint splits are enforced throughout to prevent data leakage.\n\n\n\n\n\n\n\n\n\n\n\nThe baseline CNN+LSTM achieved a peak validation AUC of 0.89 on a held-out set of subjects unseen during training, confirming the model learns generalizable representations rather than subject-specific artifacts. Planned extensions include a CNN+Transformer comparison model, full leave-one-subject-out cross-validation, and an integrated attention module that will produce temporal and spatial interpretability outputs directly alongside predictions."
+  },
+  {
+    "objectID": "projects/project-two/index.html",
+    "href": "projects/project-two/index.html",
+    "title": "Is MLB Clutch Performance a Reproducible Skill?",
+    "section": "",
+    "text": "Read the Paper"
   }
 ]

@@ -1,0 +1,7 @@
+---
+title: "Is MLB Clutch Performance a Reproducible Skill?"
+description: "Analyzing batter swing behavior in high leverage situations."
+image: proj-two-nail.png
+---
+
+[Read the Paper](leverage_behavior.pdf)
