@@ -1,0 +1,46 @@
+---
+title: "Predicting Early Hospital Readmission in Diabetic Patients"
+description: "A machine learning pipeline for predicting early hospital readmission in diabetic patients, prioritizing recall of at-risk cases through tree-based models"
+image: proj-three-nail.png
+---
+
+Hospital readmission is a costly and clinically significant problem — estimated at $40 billion annually to the U.S. healthcare system. This project applies tree-based machine learning models to predict early readmission (within 30 days of discharge) in diabetic patients, using a dataset of 101,766 records from 130 hospitals collected between 1999 and 2008. The central challenge is that early readmission accounts for only 12.5% of records, creating a severe class imbalance that biases models toward the majority class. In a healthcare context, recall on the positive class — correctly identifying patients who will be readmitted — is the most critical metric, since failing to flag an at-risk patient carries far greater consequences than a false alarm.
+
+![The training set is heavily imbalanced — early readmission cases (Readmitted <30d) make up only ~11% of records compared to ~89% non-early readmission, creating a significant class imbalance that biases models toward the majority class and motivates the use of oversampling and recall-focused evaluation](proj-three-nail.png){width=80%, fig-align="center"}
+
+Substantial preprocessing was required before modeling. Missing values were handled through group-based imputation, ICD-9 diagnosis codes were grouped into clinically meaningful categories to reduce dimensionality, and skewed numeric features were addressed through log transformation, ordinal binning, or binarization. Feature selection combined variance thresholding, correlation filtering, and Random Forest importance scores to reduce a post-encoding feature space of 200+ variables down to 23. Random oversampling was applied to balance the training set for select models. Five models were trained and evaluated — Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, and Naïve Bayes — with hyperparameter tuning via GridSearchCV optimized for positive class recall. A second Gradient Boosting model was trained on resampled data after the original proved heavily biased toward the majority class.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(knitr)
+library(kableExtra)
+
+dt <- data.frame(
+  Class = c("Not <30d", "Readmitted <30d", "Accuracy", "Macro Avg", "Weighted Avg"),
+  Precision = c(0.92, 0.15, "—", 0.53, 0.83),
+  Recall = c(0.61, 0.55, 0.61, 0.58, 0.61),
+  F1 = c(0.74, 0.24, 0.61, 0.49, 0.68),
+  Support = c(18064, 2270, 20334, 20334, 20334)
+)
+
+gb <- data.frame(
+  Class = c("Not <30d", "Readmitted <30d", "Accuracy", "Macro Avg", "Weighted Avg"),
+  Precision = c(0.91, 0.17, "—", 0.54, 0.83),
+  Recall = c(0.72, 0.45, 0.69, 0.58, 0.69),
+  F1 = c(0.80, 0.24, 0.69, 0.52, 0.74),
+  Support = c(18064, 2270, 20334, 20334, 20334)
+)
+
+kable(dt, caption = "Decision Tree", align = c("l","c","c","c","c")) %>%
+  kable_styling(bootstrap_options = c("striped","hover"), full_width = FALSE) %>%
+  row_spec(2, bold = TRUE, color = "white", background = "#2c7bb6")
+
+kable(gb, caption = "Gradient Boosting", align = c("l","c","c","c","c")) %>%
+  kable_styling(bootstrap_options = c("striped","hover"), full_width = FALSE) %>%
+  row_spec(2, bold = TRUE, color = "white", background = "#2c7bb6")
+```
+
+The results reflect the genuine difficulty of the problem. The Decision Tree achieved 55% recall on early readmission cases in the test set, correctly flagging the majority of at-risk patients at the cost of low precision (0.15) and elevated false positives — a deliberate trade-off given the clinical priority of recall. The resampled Gradient Boosting model improved over its original version, reaching 45% recall and 69% accuracy, but similarly struggled to detect positive cases cleanly. Both models performed substantially better on the negative class, suggesting that early readmission does not follow easily learnable patterns in this feature set. Class imbalance, feature noise, and the inherent complexity of clinical outcomes all limit how far behavioral patterns in this data can take a model.

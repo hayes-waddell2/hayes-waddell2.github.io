@@ -1,6 +1,6 @@
 ---
 title: "Deep Learning EEG Classification Pipeline"
-description: "End-to-end CNN+LSTM pipeline for abnormal EEG classification."
+description: "End-to-end CNN+LSTM pipeline for abnormal EEG classification"
 image: proj-one-nail.png
 ---
 

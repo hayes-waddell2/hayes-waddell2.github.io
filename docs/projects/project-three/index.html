@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Analyzing batter swing behavior in high leverage situations">
+<meta name="description" content="A machine learning pipeline for predicting early hospital readmission in diabetic patients, prioritizing recall of at-risk cases through tree-based models">
 
-<title>Is MLB Clutch Performance a Reproducible Skill? – Hayes Waddell</title>
+<title>Predicting Early Hospital Readmission in Diabetic Patients – Hayes Waddell</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,6 +71,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -124,12 +128,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Is MLB Clutch Performance a Reproducible Skill?</h1>
+<h1 class="title">Predicting Early Hospital Readmission in Diabetic Patients</h1>
 </div>
 
 <div>
   <div class="description">
-    Analyzing batter swing behavior in high leverage situations
+    A machine learning pipeline for predicting early hospital readmission in diabetic patients, prioritizing recall of at-risk cases through tree-based models
   </div>
 </div>
 
@@ -146,29 +150,119 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="leverage_behavior.pdf">Read the Paper</a></p>
-<p>Not all plate appearances matter equally. Leverage Index (LI) quantifies how much a single plate appearance can shift a team’s win probability, with high leverage situations — typically late innings in close games — representing moments where outcomes carry the most weight. The prevailing view in baseball analytics holds that clutch performance is largely random rather than a repeatable skill. This study takes a statistical look at that assumption, asking whether performance differences in high leverage situations are systematic across MLB hitters, and whether measurable changes in plate discipline behavior can help explain them. Data spanning the 2023–2025 seasons was sourced from TruMedia Networks, restricted to 143 qualified hitters with sufficient plate appearances across both leverage conditions.</p>
+<p>Hospital readmission is a costly and clinically significant problem — estimated at $40 billion annually to the U.S. healthcare system. This project applies tree-based machine learning models to predict early readmission (within 30 days of discharge) in diabetic patients, using a dataset of 101,766 records from 130 hospitals collected between 1999 and 2008. The central challenge is that early readmission accounts for only 12.5% of records, creating a severe class imbalance that biases models toward the majority class. In a healthcare context, recall on the positive class — correctly identifying patients who will be readmitted — is the most critical metric, since failing to flag an at-risk patient carries far greater consequences than a false alarm.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig-1.png" class="img-fluid figure-img"></p>
-<figcaption>Box plot of within-player xOPS differences (High − Low leverage). Negative values indicate decreased performance in high leverage situations.</figcaption>
+<p><img src="proj-three-nail.png" class="img-fluid figure-img"></p>
+<figcaption>The training set is heavily imbalanced — early readmission cases (Readmitted &lt;30d) make up only ~11% of records compared to ~89% non-early readmission, creating a significant class imbalance that biases models toward the majority class and motivates the use of oversampling and recall-focused evaluation</figcaption>
 </figure>
 </div>
-<p>Four analyses build on each other to address the central question. A paired t-test established that the league-wide decline in offensive performance under high leverage is statistically significant — hitters produce a mean xOPS of 0.725 in high leverage situations compared to 0.758 in low leverage, a moderate and consistent directional shift (Cohen’s d = −0.52). A repeated measures ANOVA then confirmed that hitters do change their approach under pressure: zone swing rate, chase rate, and whiff rate all increase significantly in high leverage situations, meaning hitters collectively become more aggressive and make less contact when it matters most.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig-2.png" class="img-fluid figure-img"></p>
-<figcaption>Box plots of within-player differences (High − Low leverage) for Zone Swing Rate, Chase Rate, and Whiff Rate. Positive values indicate increased rates in high leverage situations.</figcaption>
-</figure>
+<p>Substantial preprocessing was required before modeling. Missing values were handled through group-based imputation, ICD-9 diagnosis codes were grouped into clinically meaningful categories to reduce dimensionality, and skewed numeric features were addressed through log transformation, ordinal binning, or binarization. Feature selection combined variance thresholding, correlation filtering, and Random Forest importance scores to reduce a post-encoding feature space of 200+ variables down to 23. Random oversampling was applied to balance the training set for select models. Five models were trained and evaluated — Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, and Naïve Bayes — with hyperparameter tuning via GridSearchCV optimized for positive class recall. A second Gradient Boosting model was trained on resampled data after the original proved heavily biased toward the majority class.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small">
+<caption>Decision Tree</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Class</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Precision</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Recall</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">F1</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Support</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Not &lt;30d</td>
+<td style="text-align: center;">0.92</td>
+<td style="text-align: center;">0.61</td>
+<td style="text-align: center;">0.74</td>
+<td style="text-align: center;">18064</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(44, 123, 182, 255) !important;">Readmitted &lt;30d</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(44, 123, 182, 255) !important;">0.15</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(44, 123, 182, 255) !important;">0.55</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(44, 123, 182, 255) !important;">0.24</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(44, 123, 182, 255) !important;">2270</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">0.61</td>
+<td style="text-align: center;">0.61</td>
+<td style="text-align: center;">20334</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Macro Avg</td>
+<td style="text-align: center;">0.53</td>
+<td style="text-align: center;">0.58</td>
+<td style="text-align: center;">0.49</td>
+<td style="text-align: center;">20334</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Weighted Avg</td>
+<td style="text-align: center;">0.83</td>
+<td style="text-align: center;">0.61</td>
+<td style="text-align: center;">0.68</td>
+<td style="text-align: center;">20334</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>A multiple linear regression tested whether those behavioral changes predict individual performance differential, finding a statistically significant but limited relationship (R² = 6.81%), with whiff rate emerging as the only individually significant predictor. Finally, a two-sample t-test compared behavioral profiles between hitters who outperformed and underperformed the league median change in xOPS, finding that outperformers exhibited significantly smaller increases in both chase rate and whiff rate — but no meaningful difference in zone swing rate.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig-3.png" class="img-fluid figure-img"></p>
-<figcaption>Box plot of within-player changes in chase rate by performance group (Outperform vs.&nbsp;Underperform). Outperformers exhibit smaller increases in Chase Rate</figcaption>
-</figure>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small">
+<caption>Gradient Boosting</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Class</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Precision</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Recall</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">F1</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Support</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Not &lt;30d</td>
+<td style="text-align: center;">0.91</td>
+<td style="text-align: center;">0.72</td>
+<td style="text-align: center;">0.80</td>
+<td style="text-align: center;">18064</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(44, 123, 182, 255) !important;">Readmitted &lt;30d</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(44, 123, 182, 255) !important;">0.17</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(44, 123, 182, 255) !important;">0.45</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(44, 123, 182, 255) !important;">0.24</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(44, 123, 182, 255) !important;">2270</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">0.69</td>
+<td style="text-align: center;">0.69</td>
+<td style="text-align: center;">20334</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Macro Avg</td>
+<td style="text-align: center;">0.54</td>
+<td style="text-align: center;">0.58</td>
+<td style="text-align: center;">0.52</td>
+<td style="text-align: center;">20334</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Weighted Avg</td>
+<td style="text-align: center;">0.83</td>
+<td style="text-align: center;">0.69</td>
+<td style="text-align: center;">0.74</td>
+<td style="text-align: center;">20334</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>The results point toward a coherent but partial picture. The behavioral signature of relative success under pressure appears to be stability rather than improvement — outperformers are essentially the same hitters in high leverage that they are in low leverage, resisting the pull toward expanded zone coverage and more swing-and-miss. However, the small effect sizes and low explained variance across all four analyses make clear that plate discipline changes alone are far from a complete explanation of clutch performance. Pitcher quality, count and base-out state, pitch usage, and individual baseline skill differences all represent meaningful sources of variation that this study does not capture. These findings are best understood as identifying a measurable behavioral signal within a much larger and more complex phenomenon — not as resolving the question of whether clutch performance is real.</p>
+</div>
+<p>The results reflect the genuine difficulty of the problem. The Decision Tree achieved 55% recall on early readmission cases in the test set, correctly flagging the majority of at-risk patients at the cost of low precision (0.15) and elevated false positives — a deliberate trade-off given the clinical priority of recall. The resampled Gradient Boosting model improved over its original version, reaching 45% recall and 69% accuracy, but similarly struggled to detect positive cases cleanly. Both models performed substantially better on the negative class, suggesting that early readmission does not follow easily learnable patterns in this feature set. Class imbalance, feature noise, and the inherent complexity of clinical outcomes all limit how far behavioral patterns in this data can take a model.</p>
 
 
 

@@ -3,7 +3,10 @@
     "listing": "/projects/index.html",
     "items": [
       "/projects/project-one/index.html",
-      "/projects/project-two/index.html"
+      "/projects/project-two/index.html",
+      "/projects/project-four/index.html",
+      "/projects/project-three/index.html",
+      "/projects/project-five/index.html"
     ]
   }
 ]
