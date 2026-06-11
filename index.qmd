@@ -8,28 +8,26 @@ about:
     - icon: github
       href: https://github.com/hayes-waddell2
     - icon: linkedin
-      href: www.linkedin.com/in/hayes-waddell
+      href: https://www.linkedin.com/in/hayes-waddell
 ---
 
 ::: {#intro-heading}
-Baseball has always meant more to me than any single dimension of it. I played collegiately at Macalester College, have spent six years coaching youth players from 8 to 17 years old, and have spent just as much time buried in Statcast data and building models as I have on the field. That combination — player, coach, analyst — is the lens I bring to everything I do in this game.
- 
-I believe the best baseball minds are the ones who can move fluidly between a spreadsheet and a conversation with a player. Data without context is noise. Intuition without data is guesswork. My goal is to work in an organization that values both, and to be the kind of person who bridges that gap.
- 
-I'm finishing my M.S. in Data Science in December 2025, building on a B.A. in Neuroscience and Data Science from Macalester. The projects and writing on this site reflect how I think about baseball — analytically, but always with the human side of the game in mind.
+I've spent most of my life trying to get smarter about the game of baseball. Playing collegiality pushed me to understand the game more deeply than just what I could control on the field. Coaching kids for six years, from 8-year olds just learning to throw to 17-year olds thinking about their future, gave me an appreciation for player development and what it takes learn and grow as a player. Working with MLB data, through course work and on my own curiosity, opened up a side of the game that is difficult to see from the field or dugout. ###. 
+
+I'm finishing my M.S. in Data Science in December, and my goal is to bring all of it into one place, the instincts and eye for the game I've built as a player and coach, and the tools to test whether those instincts are actually right while opening the door for new insights. I view analytics and traditional baseball philosophies as two sides of the same coin, not separate departments.
 
 ## Education
 
 **M.S in Data Science** \| Rochester Institute of Technology <br> Expected December 2026
 
-**B.A. in Neuroscience** \| Macalester College \\ May 2025 <br> Minors: Data Science, Biology, Psychology
+**B.A. in Neuroscience** \| Macalester College \| May 2025 <br> Minors: Data Science, Biology, Psychology
 
 ## Playing Career
 
-R.I.T \| 1 season
+R.I.T \| 1 season <br>
 - Liberty League Champions, 2026
 
-Macalester College \| 3 seasons
-- All-Region Third Team, 2024
+Macalester College \| 3 seasons <br>
+- All-Region Third Team, 2024 <br>
 - All-MIAC First Team, 2024
 :::

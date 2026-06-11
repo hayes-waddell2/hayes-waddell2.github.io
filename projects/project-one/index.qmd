@@ -1,0 +1,11 @@
+---
+title: "Deep Learning EEG Classification Pipeline"
+description: "End-to-end CNN+LSTM pipeline for abnormal EEG classification."
+image: proj-one-nail.png
+---
+
+[View on GitHub](https://github.com/hayes-waddell2/DeepLearning-EEG-Pipeline)
+
+[Read the Paper](full_paper.pdf)
+
+Description

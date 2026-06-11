@@ -8,10 +8,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: data-science.qmd
-        text: Data Science
-      - href: neuroscience.qmd
-        text: Neuroscience
+      - href: projects/index.qmd
+        text: Academic Projects
+      - href: blog.qmd
+        text: Baseball Blog
 
 format:
   html:
