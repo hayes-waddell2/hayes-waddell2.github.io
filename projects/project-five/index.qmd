@@ -1,6 +1,6 @@
 ---
 title: "The Intersection of Tradition, Cognition, and Performance: Exploring Nicotine Use in Baseball"
-description: "A literature review examining the historical roots of nicotine in baseball culture and the neuroscientific mechanisms behind its cognitive enhancing effects"
+description: "A literature review examining the historical roots of nicotine in baseball culture and the neural mechanisms behind its cognitive enhancing effects"
 image: proj-5-nail.png
 ---
 
@@ -8,7 +8,7 @@ image: proj-5-nail.png
 
 Nicotine has been intertwined with baseball since the sport's earliest days — players smoked in dugouts, tobacco companies sponsored every team, and cigarette packs included baseball cards that kids collected alongside their favorite players. This paper examines that cultural history alongside the neuroscience of why nicotine use has persisted in the sport long after its health risks became widely known. The central argument is that nicotine's appeal to baseball players is not purely cultural inertia but is grounded in documented cognitive enhancements that directly map onto the demands of the game.
 
-![](fig-1.png){width=80%, fig-align="center"}
+![](fig-1.png){width="80%," fig-align="center"}
 
 Baseball places extraordinary cognitive demands on players — hitting requires anticipating pitch type and location before the ball is released, processing visual information in milliseconds, and executing precise motor movements where millimeters determine outcomes. Nicotine addresses these demands through its interaction with nicotinic acetylcholine receptors (nAChRs), triggering the release of neurotransmitters including dopamine, acetylcholine, and norepinephrine across brain regions involved in attention, memory, reaction time, and fine motor control. Research demonstrates enhancements in sustained focus, working memory, object recognition, spatial memory, and reaction speed — each directly relevant to performance at the plate. One study found that nicotine measurably improved baseball hitting performance on a task requiring precise bat control.
 
