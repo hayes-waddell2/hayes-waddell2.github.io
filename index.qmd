@@ -12,22 +12,19 @@ about:
 ---
 
 ::: {#intro-heading}
-I've spent most of my life trying to get smarter about the game of baseball. Playing collegiality pushed me to understand the game more deeply than just what I could control on the field. Coaching kids for six years, from 8-year olds just learning to throw to 17-year olds thinking about their future, gave me an appreciation for player development and what it takes learn and grow as a player. Working with MLB data, through course work and on my own curiosity, opened up a side of the game that is difficult to see from the field or dugout. ###. 
+I've spent most of my life trying to get smarter about the game of baseball. Playing collegiately pushed me to understand the game more deeply than just what I could control on the field. Coaching kids for six years, from 8-year olds just learning to throw to 17-year olds thinking about their future, gave me an appreciation for player development and what it takes learn and grow as a player. My neuroscience background gives me a different framework for thinking about athletic performance. One grounded in the mechanisms of decision making, how motor learning actually works, and the different ways the brain responds to stressful high pressure situations. Working with MLB data, through course work and on my own curiosity, opened up a side of the game that is difficult to see from the field or dugout.
 
-I'm finishing my M.S. in Data Science in December, and my goal is to bring all of it into one place, the instincts and eye for the game I've built as a player and coach, and the tools to test whether those instincts are actually right while opening the door for new insights. I view analytics and traditional baseball philosophies as two sides of the same coin, not separate departments.
+I'm finishing my M.S. in Data Science in December, and my goal is to bring all of it into one place, the instincts and eye for the game I've built as a player and coach, a scientific understanding of physical performance and cognition, and the tools to test whether those instincts are actually right while opening the door for new insights. I view analytics and traditional baseball philosophies as two sides of the same coin, not separate departments.
 
 ## Education
 
-**M.S in Data Science** \| Rochester Institute of Technology <br> Expected December 2026
+**M.S in Data Science** \| *Rochester Institute of Technology* <br> Expected December 2026
 
-**B.A. in Neuroscience** \| Macalester College \| May 2025 <br> Minors: Data Science, Biology, Psychology
+**B.A. in Neuroscience** \| *Macalester College* \| May 2025 <br> Minors: Data Science, Biology, Psychology
 
 ## Playing Career
 
-R.I.T \| 1 season <br>
-- Liberty League Champions, 2026
+**R.I.T** \| *1 season* <br> - Liberty League Champions, 2026
 
-Macalester College \| 3 seasons <br>
-- All-Region Third Team, 2024 <br>
-- All-MIAC First Team, 2024
+**Macalester College** \| *3 seasons* <br> - All-Region Third Team, 2024 <br> - All-MIAC First Team, 2024
 :::
