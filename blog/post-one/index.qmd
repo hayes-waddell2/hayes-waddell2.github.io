@@ -5,7 +5,7 @@ date: 2026-07-5
 image: 3d_clusters.png
 ---
 
-[View on GitHub](https://github.com/hayes-waddell2/mlb-player-profiling)
+[View GitHub Repo](https://github.com/hayes-waddell2/mlb-player-profiling)
 
 # Introduction
 

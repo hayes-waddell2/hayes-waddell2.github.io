@@ -1,0 +1,49 @@
+---
+title: "Does Taking Strike Three Help Hitters?"
+description: "Patient two-strike hitters chase less and walk more, but it does it lead to increased production?"
+date: 2026-08-26
+image: k_bb_diff.png
+---
+
+
+[View GitHub Repo](https://github.com/hayes-waddell2/mlb-k-looking-two-strike-production)
+
+
+# Introduction
+
+Every ballplayer grows up with the same coaching: with two-strikes you have to protect the plate and fight off anything close. The idea that striking out looking is somehow worse than striking out swinging (although obviously that isn't the only possible outcome when swinging with two strikes) is ingrained in you at a young age. But throughout my own college career I noticed that I started performing better in two-strike counts when I became more patient. I did not want to strikeout looking, but I started chasing less and making higher quality contact when I took more borderline pitches. Was I actually onto something, maybe this worked for me but won't for others, or did it just feel like this was working? In this analysis I set out to find out whether this idea holds up across Major League hitters. 
+
+
+## Data 
+
+To test this I pulled pitch-level data for MLB hitters from 2021-2025 using Baseball Savant's Statcast search feature. With this data I built a set of strikeout-composition metrics: overall strikeout rate, strikeout looking rate, and strikeout swinging rate (further divided into chase vs in zone), all expressed as a rate of plate appearances. I looked at this in two ways: across players, to see how patient hitters compare to aggressive ones, and within player, tracking the same hitter across multiple seasons to see if changes in two-strike swing behavior actually affected their results. From there, I advanced the analysis into how looking-strikeout rate interacts with these metrics in two-strike counts: chase rate, walk rate, barrels per batted ball event, and expected batting average. Barrel rate and xBA were chosen specifically because they reflect the batted ball contact only, walks and strikeouts don't factor into either metrics. While both are a representation of exit velocity and launch angle they capture these metrics from two different angles. Barrels represent the highest end of contact quality and typically carry a high xBA to match. While contact hitters without much power can still post a strong xBA by finding the right launch angle of weakly struck balls. Pairing these two metrics helps to capture more of the full story of contact quality in two-strike counts.
+
+
+# Players Who Strikeout Looking More Chase Less
+
+Across the five year sample of MLB hitters who saw at least 250 two-strike pitches, hitters who took strike three more often swung at less pitches out of the zone with two strikes (r = -0.65, Figure 1, top left). But across all hitters, this strong relationship might only be explaining inherent differences between patient and aggressive hitters. To test that, I tracked individual hitters across multiple seasons, using a fixed effects regression to strip out each player's average tendencies and isolate their year-to-year changes independent of league wide tendencies or their general approach. Within the same player, every 1 percentage-point rise in looking strikeout rate is associated with a 0.66 percentage-point decrease in two-strike chase rate (p < 0.001). Figure 2 (top left) illustrates this relationship using each hitter's values demeaned against their own average. This plot is only a visual approximation of the fixed-effects results since the plotted correlation does not include the year effects controlled for in the model. These results support that this trend isn't just a fixed trait between different types of hitters, but its actually an adjustable behavior an individual hitter can act on (easier said than done). 
+
+
+![Figure 1. Across MLB hitters (2021–2025, min. 250 two-strike pitches seen), looking-strikeout rate correlates with two-strike chase rate (top left), two-strike walk rate (top right), barrel rate (bottom left), and expected batting average (bottom right). Each point represents one player-season.](two_strike_scatter_grid.png){fig-align="center"}
+
+
+![Figure 2. The same four relationships, isolated within player: each hitter's values are demeaned against their own multi-season average, approximating the within-player relationship estimated by a fixed-effects regression (player and year fixed effects). Note the correlation and R² shown here are drawn from the demeaned values only and do not exactly match the formal model estimates, which additionally control for year-level effects.](two_strike_scatter_grid_within.png){fig-align="center"}
+
+
+# Does This Improve Two-Strike Outcomes?
+
+
+## Contact Quality
+
+Does chasing less pitches by being more prone to striking out looking actually make a player a better hitter or just a more patient one? Barrel rate and xBA offer two, similar but different, angles on if this approach translates to higher contact quality or if it just changes how a hitter makes outs. Across all hitters, looking strikeout rate correlates to in an increase in two-strike barrel rate (r = 0.30, p <0.001, Figure 1, bottom left), but a decrease in xBA (r = -0.59, p <0.001, Figure 1, bottom right). INTERPRETATION??????
+
+Using the same fixed-effects approach as before, a hitter's own year-to-year changes in looking strikeout rate showed no significant relationship with their own barrel rate (Figure 2, bottom left). This was the least significant relationship within the analysis as the model essential explained none of the within-player variation in barrel rate ($R^2$ < 0.001). xBA did move within player: every 1 percentage-point rise in a hitter's own looking-strikeout rate was associated with a 0.006 point decline in their own xBA (p < 0.001). INTERPRET
+
+
+## Less Chase Means More Walks
+
+Even accounting for the real rise in walk rate that comes with taking more strikeouts looking, the trade doesn't break even: within the same player, a higher looking-strikeout rate is associated with a wider, not narrower, gap between strikeout rate and walk rate. The extra free passes are real, but they don't offset the extra strikeouts.
+
+
+![Figure 3. Overall strikeout rate and two-strike walk rate as strikeout looking rate increases.](k_bb_diff.png){fig-align="center"}
+
