@@ -1,7 +1,7 @@
 ---
 title: "Does Taking Strike Three Help Hitters?"
 description: "Patient two-strike hitters chase less and walk more, but it does it lead to increased production?"
-date: 2026-08-26
+date: 2026-09-1
 image: k_bb_diff.png
 ---
 
